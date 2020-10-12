@@ -178,14 +178,14 @@ const App = (_: any, state: AppState, setState: SetState) => {
             { className: 'pull-left' },
             H('div',
                 H(Field, {
-                    label: 'Theme',
+                    label: 'テーマ',
                     input: H(Dropdown, {
                         options: themeOptions,
                         value: theme,
                     })
                 }),
                 H(Field, {
-                    label: 'File Type',
+                    label: 'ファイルタイプ',
                     input: H(Dropdown, {
                         options: fileTypeOptions,
                         value: fileType,
@@ -193,7 +193,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Font Size',
+                    label: 'フォントサイズ',
                     input: H(Dropdown, {
                         options: fontSizeOptions,
                         value: fontSize,
@@ -201,7 +201,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Text Type',
+                    label: 'テキスト形式',
                     input: H(Dropdown, {
                         options: markdownOptions,
                         value: mdValue,
@@ -209,7 +209,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Text Input',
+                    label: 'テキストを入力',
                     input: H(TextInput, {
                         value: text,
                         oninput: (val: string) => {
