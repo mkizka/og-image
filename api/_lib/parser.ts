@@ -5,13 +5,16 @@ import { ParsedRequest } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    const { fontSize, theme, md } = (query || {});
+    const { fontSize, theme, md, background } = (query || {});
 
     if (Array.isArray(fontSize)) {
         throw new Error('Expected a single fontSize');
     }
     if (Array.isArray(theme)) {
         throw new Error('Expected a single theme');
+    }
+    if (Array.isArray(background)) {
+        throw new Error('Expected a single background');
     }
     
     const arr = (pathname || '/').slice(1).split('.');
@@ -32,6 +35,7 @@ export function parseRequest(req: IncomingMessage) {
         theme: theme === 'dark' ? 'dark' : 'light',
         md: md === '1' || md === 'true',
         fontSize: fontSize || '96px',
+        background: decodeURIComponent(background)
     };
     return parsedRequest;
 }

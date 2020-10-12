@@ -7,4 +7,5 @@ export interface ParsedRequest {
     theme: Theme;
     md: boolean;
     fontSize: string;
+    background?: string;
 }
