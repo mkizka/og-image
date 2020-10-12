@@ -157,13 +157,14 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const {
         fileType = 'png',
         fontSize = '100px',
-        theme = 'light',
+        theme = 'black',
         md = true,
         text = '**Hello** World',
         showToast = false,
         messageToast = '',
         loading = true,
         overrideUrl = null,
+        background = ''
     } = state;
     const mdValue = md ? '1' : '0';
     const url = new URL(window.location.origin);
@@ -171,6 +172,9 @@ const App = (_: any, state: AppState, setState: SetState) => {
     url.searchParams.append('theme', theme);
     url.searchParams.append('md', mdValue);
     url.searchParams.append('fontSize', fontSize);
+    if (background) {
+        url.searchParams.append('background', background)
+    }
 
     return H('div',
         { className: 'split' },
@@ -213,10 +217,14 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     label: 'テキストを入力',
                     input: H(TextInput, {
                         value: text,
-                        oninput: (val: string) => {
-                            console.log('oninput ' + val);
-                            setLoadingState({ text: val, overrideUrl: url });
-                        }
+                        oninput: (val: string) => setLoadingState({ text: val, overrideUrl: url })
+                    })
+                }),
+                H(Field, {
+                    label: '背景画像URLを入力(任意)',
+                    input: H(TextInput, {
+                        value: background,
+                        oninput: (val: string) => setLoadingState({ background: val })
                     })
                 }),
             )
