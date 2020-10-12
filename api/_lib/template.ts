@@ -13,6 +13,8 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('ba
 
 function getCss(theme: string, fontSize: string, background: string | undefined) {
     return `
+    @import url('https://fonts.googleapis.com/css?family=M+PLUS+1p');
+
     @font-face {
         font-family: 'Inter';
         font-style:  normal;
@@ -88,7 +90,7 @@ function getCss(theme: string, fontSize: string, background: string | undefined)
     }
     
     .heading {
-        font-family: 'Inter', sans-serif;
+        font-family: 'M PLUS 1p', 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${theme};
