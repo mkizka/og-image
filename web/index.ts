@@ -159,12 +159,12 @@ const App = (_: any, state: AppState, setState: SetState) => {
         fontSize = '100px',
         theme = 'black',
         md = true,
-        text = '**Hello** World',
+        text = 'ここにテキストを入力',
         showToast = false,
         messageToast = '',
         loading = true,
         overrideUrl = null,
-        background = ''
+        background = 'https://images.unsplash.com/photo-1511406239133-2c1130a2d754'
     } = state;
     const mdValue = md ? '1' : '0';
     const url = new URL(window.location.origin);
