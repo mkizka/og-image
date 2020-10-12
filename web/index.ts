@@ -1,4 +1,4 @@
-import { ParsedRequest, FileType } from '../api/_lib/types';
+import {ParsedRequest, FileType, Theme} from '../api/_lib/types'
 const { H, R, copee } = (window as any);
 let timeout = -1;
 
@@ -112,8 +112,8 @@ const Toast = ({ show, message }: ToastProps) => {
 }
 
 const themeOptions: DropdownOption[] = [
-    { text: 'Light', value: 'light' },
-    { text: 'Dark', value: 'dark' },
+    { text: '黒', value: 'black' },
+    { text: '白', value: 'white' },
 ];
 
 const fileTypeOptions: DropdownOption[] = [
@@ -178,10 +178,11 @@ const App = (_: any, state: AppState, setState: SetState) => {
             { className: 'pull-left' },
             H('div',
                 H(Field, {
-                    label: 'テーマ',
+                    label: '文字色',
                     input: H(Dropdown, {
                         options: themeOptions,
                         value: theme,
+                        onchange: (val: Theme) => setLoadingState({ theme: val })
                     })
                 }),
                 H(Field, {
