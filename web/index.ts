@@ -131,6 +131,7 @@ const Toast = ({ show, message }: ToastProps) => {
 const themeOptions: DropdownOption[] = [
     { text: '黒', value: 'black' },
     { text: '白', value: 'white' },
+    { text: '縁取り', value: 'stroke' }
 ];
 
 const fileTypeOptions: DropdownOption[] = [

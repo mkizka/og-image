@@ -93,7 +93,12 @@ function getCss(theme: string, fontSize: string, background: string | undefined)
         font-family: 'M PLUS 1p', 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
-        color: ${theme};
+        ${theme == 'stroke' ?
+            `-webkit-text-stroke-color: #111;
+            -webkit-text-stroke-width: 3px;
+            color: white;` :
+            `color: ${theme};`
+        };
         line-height: 1.8;
     }`;
 }
